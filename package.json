@@ -1,0 +1,29 @@
+{
+  "name": "ecommerce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2110aman/ecommerce.git"
+  },
+  "author": "anmol",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/2110aman/ecommerce/issues"
+  },
+  "homepage": "https://github.com/2110aman/ecommerce#readme",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "ejs-mate": "^4.0.0",
+    "express": "^4.19.2",
+    "mongoose": "^8.2.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
