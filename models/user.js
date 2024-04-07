@@ -34,7 +34,7 @@ userSchema.pre("save", function (next) {
   if (!user.isModified("password")) return;
 
   const salt = randomBytes(16).toString();
-  const hashedPassword = createHmac("hsa256", salt)
+  const hashedPassword = createHmac("sha256", salt)
     .update(user.password)
     .digest("hex");
 
@@ -58,7 +58,7 @@ userSchema.static("matchPassword", function (email, password) {
   if (hashedPassword !== userProvidedHash)
     throw new Error("Incorrect Password");
 
-  return { ...user, password: undefined, salt: undefined };
+  return user;
 });
 
 const User = model("User", userSchema);
