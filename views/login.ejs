@@ -12,16 +12,23 @@
       <div class="sigin-signup">
         <!-- signin-->
 
-        <form action="" class="sign-in-form">
+        <form action="/user/signin" method="post" class="sign-in-form">
+
           <h2 class="title">Sign In</h2>
           <div class="input-field">
             <i class="fa-solid fa-envelope"></i>
-            <input type="text" placeholder="Email Id" />
+            <input type="email" placeholder="Email Id" name="email" />
           </div>
           <div class="input-field">
             <i class="fa-solid fa-lock"></i>
-            <input type="password" placeholder="Password" />
+            <input type="password" placeholder="Password" name="password" />
           </div>
+
+          <!-- error div -->
+
+          <% if (locals.error) { %>
+          <div class="error"><%= locals.error %></div>
+          <% } %>
           <input type="submit" value="Sign In" class="btn" />
           <p class="social-text">Or Sign In with social platform</p>
           <div class="social-media">
@@ -41,19 +48,20 @@
         </form>
 
         <!-- signUp -->
-        <form action="" class="sign-up-form">
+        <form action="/user/signup" method="post" class="sign-up-form">
+
           <h2 class="title">Sign Up</h2>
           <div class="input-field">
             <i class="fa-solid fa-user"></i>
-            <input type="text" placeholder="Full Name" />
+            <input type="text" placeholder="Full Name" name="fullName" />
           </div>
           <div class="input-field">
             <i class="fa-solid fa-envelope"></i>
-            <input type="text" placeholder="Email Id" />
+            <input type="email" placeholder="Email Id" name="email" />
           </div>
           <div class="input-field">
             <i class="fa-solid fa-lock"></i>
-            <input type="password" placeholder="Password" />
+            <input type="password" placeholder="Password" name="password" />
           </div>
           <input type="submit" value="Sign Up" class="btn" />
           <p class="social-text">Or Sign Up with social platform</p>

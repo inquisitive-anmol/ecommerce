@@ -42,7 +42,7 @@
     z-index: 5;
   }
   
-  form {
+  .sigin-signup  form {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -50,6 +50,12 @@
     width: 40%;
     min-width: 238px;
     padding: 0 10px;
+  }
+
+  .sigin-signup form .error {
+    color: red;
+    font-weight: 500;
+    font-size: 1.2vmax;
   }
   
   form.sign-in-form {
