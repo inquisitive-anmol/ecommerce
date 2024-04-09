@@ -1,4 +1,5 @@
 const { Router } = require("express");
+const { createTokenForUser } = require("../services/authentication");
 
 const router = Router();
 
@@ -19,21 +20,32 @@ router.post("/signin", async (req, res) => {
     return res.cookie("token", token).redirect("/");
   } catch (error) {
     return res.render("login", {
-      error: "Incorrect Email or Password",
+      error, // "Incorrect Email or Password"
     });
   }
 });
 
 router.post("/signup", async (req, res) => {
   const { fullName, email, password } = req.body;
-  await User.create({
-    fullName,
-    email,
-    password,
-  });
+  try {
+    let ifUser = await User.findOne({email});
+    if (ifUser) throw new Error("User already exists!! sign in");
 
+    let user = await User.create({
+      fullName,
+      email,
+      password,
+    });
+
+    const token = createTokenForUser(user);
+    return res.cookie("token", token).redirect("/");
+
+  } catch(error) {
+    res.render("login", {
+      error,
+    });
+  }
  
-  return res.redirect("/");
 });
 
 module.exports = router;
