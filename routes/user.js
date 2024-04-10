@@ -23,7 +23,6 @@ const User = require("../models/user");
 
 
 
-
 router.get("/signin", (req, res) => {
   return res.render("login");
 });
