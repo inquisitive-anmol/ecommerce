@@ -2,8 +2,12 @@ const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
 const cookiePaser = require("cookie-parser");
+const passport = require('passport');
+const session = require("express-session");
 
 const userRoute = require("./routes/user");
+
+
 
 const {
   checkForAuthenticationCookie,
@@ -21,6 +25,8 @@ main()
     console.log(err);
   });
 
+
+
 async function main() {
   await mongoose.connect("mongodb://127.0.0.1:27017/cart");
 }
@@ -32,6 +38,10 @@ app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookiePaser());
 app.use(checkForAuthenticationCookie("token"));
+app.use(express.static(path.join(__dirname, 'public')));
+
+
+
 
 
 
