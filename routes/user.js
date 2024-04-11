@@ -10,19 +10,6 @@ const User = require("../models/user");
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 router.get("/signin", (req, res) => {
   return res.render("login");
 });
@@ -32,14 +19,6 @@ router.get("/logout", (req, res) => {
   res.clearCookie("token").redirect("/");
 })
 
-
-router.get('/login/google', passport.authenticate('google'));
-
-
-router.get('/login/redirect/google', passport.authenticate('google', {
-  successRedirect: '/',
-  failureRedirect: '/login'
-}));
 
 
 
@@ -56,7 +35,6 @@ router.post("/signin", async (req, res) => {
   const { email, password } = req.body;
   try {
     const token = await User.matchPasswordAndGenerateToken(email, password);
-
     return res.cookie("token", token).redirect("/");
   } catch (error) {
     return res.render("login", {

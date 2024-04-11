@@ -2,19 +2,19 @@ const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
 const cookiePaser = require("cookie-parser");
-const passport = require('passport');
-const session = require("express-session");
+
+
 
 const userRoute = require("./routes/user");
 
+const app = express();
+const PORT = 8000;
 
 
 const {
   checkForAuthenticationCookie,
 } = require("./middlewares/authentication");
 
-const app = express();
-const PORT = 8000;
 
 // mongodb connection
 main()
@@ -38,7 +38,6 @@ app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookiePaser());
 app.use(checkForAuthenticationCookie("token"));
-app.use(express.static(path.join(__dirname, 'public')));
 
 
 
@@ -52,6 +51,9 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/contact", (req, res) => {
+  res.render("contact");
+})
 
 app.use("/user", userRoute);
 
