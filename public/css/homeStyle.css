@@ -1,0 +1,342 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .home-page {
+    width: 100%;
+  }
+  .home-page .home-hero {
+    width: 100%;
+    padding: 0 10px 30px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    align-items: center;
+  }
+  .home-container {
+    width: 100%;
+    height: 70vh;
+  }
+  .banner {
+    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    color: red;
+  }
+  
+  .image-container {
+    width: 100%;
+    height: 67vh; /* Adjust according to your image dimensions */
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    transition: opacity 0.8s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .image-btn-right {
+    position: absolute;
+    bottom: 40%;
+    right: 2%;
+    margin: 1%;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .image-btn-left {
+    position: absolute;
+    bottom: 40%;
+    left: 2%;
+    margin: 1%;
+    cursor: pointer;
+  }
+  
+  /* hero-infomation */
+  .hero-info {
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .hero-info-1,
+  .hero-info-2 {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .hero-info-card {
+    width: 50%;
+    height: 14vmax;
+    padding: 10px;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    gap: 12px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.404);
+  }
+  
+  .hero-info-card img {
+    width: 40%;
+    height: 50%;
+  }
+  
+  .hero-info-card h4 {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  .hero-info-card p {
+    font-size: 1.15vmax;
+    color: #555;
+  }
+  
+  /* hero section ends here */
+  
+  
+  
+  /* product section starts here */
+  
+  #product-men {
+    width: 100%;
+    height: 95vh;
+    padding-top: 25px;
+  }
+  
+  #product-men .product-men {
+    width: 100%;
+    height: 38vmax;
+    display: flex;
+  }
+  
+  #product-men .prod-tablet-title {
+    display: none;
+  }
+  
+  #product-men .prod-men-left {
+    height: 100%;
+    width: 28%;
+    padding: 12px;
+  }
+  #product-men .prod-men-left img {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.404);
+  }
+  #product-men .prod-men-right {
+    height: 100%;
+    width: 72%;
+  }
+  #product-men .prod-men-right-top {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.4vmax;
+  }
+  #product-men .prod-men-right-bottom {
+    width: 100%;
+    height: 85%;
+    padding: 12px;
+  }
+  #product-men .prod-men-cards {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  #product-men .card-part1 {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  #product-men .card-part2 {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  #product-men .prod-men-cards .card {
+    width: 50%;
+    height: 100%;
+    border-radius: 12px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.404);
+  }
+  
+  #product-men .prod-men-cards img {
+    width: 100%;
+    height: 20vmax;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+  
+  /* product section ends here */
+  
+  /* media query */
+  
+  /* media query for product section */
+  
+  @media (max-width: 700px) {
+    .hero-info-card  {
+      padding-bottom: 22px;
+    }
+    #product-men {
+      height: fit-content;
+    }
+    #product-men .product-men {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: fit-content;
+    }
+  
+    #product-men .prod-men-right-top {
+      display: none;
+    }
+    #product-men .prod-tablet-title {
+      width: 100%;
+      height: 8vmax;
+      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #product-men .prod-men-left {
+      height: 62vmax;
+      width: 100%;
+    }
+    #product-men .prod-men-left img {
+      object-fit: cover;
+    }
+  
+    #product-men .prod-men-right {
+      height: 100%;
+      width: 100%;
+    }
+    #product-men .prod-men-right-bottom {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      height: 100%;
+    }
+    #product-men .prod-men-cards {
+      width: 100%;
+      flex-direction: column;
+    }
+    #product-men .card-part1 {
+      width: 100%;
+      height: 62vmin;
+    }
+    #product-men .card-part2 {
+      width: 100%;
+      height: 62vmin;
+    }
+    #product-men .prod-men-cards .card {
+      width: 70%;
+      height: 100%;
+    }
+    #product-men .prod-men-cards img {
+      width: 100%;
+      height: 37vmin;
+    }
+  }
+  
+  /* media query for product section ends here */
+  
+  @media (max-width: 635px) {
+    .home-container {
+      width: 100%;
+      height: 45vh;
+    }
+  
+    .image-container {
+      width: 100%;
+      height: 40vh; /* Adjust according to your image dimensions */
+    }
+    .hero-info {
+      display: flex;
+      margin: auto;
+      text-align: center;
+      margin-bottom: 2vh;
+      flex-direction: column;
+      gap: 3.9vmax;
+  }
+    .hero-info-1
+    .hero-info-2 {
+      height: 22vh;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-end;
+    }
+  
+    .hero-info-card {
+      height: 17vh;
+      width: 35vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .hero-info-card img {
+      height: 8vh;
+      width: 15vw;
+      object-fit: fill;
+      opacity: 0.9;
+    }
+  
+    .hero-info-card h4 {
+      height: 1.5vh;
+      width: 50vw;
+      font-size: 2.2vmin;
+      text-align: center;
+    }
+  
+    .hero-info-card p {
+      display: none;
+  
+    }
+  }
+  
