@@ -1,11 +1,12 @@
 const express = require("express");
 const path = require("path");
-const mongoose = require("mongoose");
+
 const cookiePaser = require("cookie-parser");
 
 
-
+const { connectMongoDb }= require("./connection");
 const userRoute = require("./routes/user");
+const pageRoute = require("./routes/page ");
 
 const app = express();
 const PORT = 8000;
@@ -17,19 +18,8 @@ const {
 
 
 // mongodb connection
-main()
-  .then(() => {
-    console.log("mongodb connected");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+connectMongoDb("mongodb://127.0.0.1:27017/cart");
 
-
-
-async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/cart");
-}
 
 // middlewares
 app.set("view engine", "ejs");
@@ -44,17 +34,18 @@ app.use(checkForAuthenticationCookie("token"));
 
 
 
-// apis
-app.get("/", (req, res) => {
+// http requests endpoints
+app.get("/",(req, res) => {
   return res.render("home.ejs", {
-    user: req.user,
+      user: req.user,
   });
-});
+}
+);
 
-app.get("/contact", (req, res) => {
-  res.render("contact");
-})
+app.use("/page", pageRoute);
 
 app.use("/user", userRoute);
+
+
 
 app.listen(PORT, () => console.log(`server started at port ${PORT}`));
