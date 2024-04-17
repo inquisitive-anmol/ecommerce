@@ -7,6 +7,7 @@ const cookiePaser = require("cookie-parser");
 const { connectMongoDb }= require("./connection");
 const userRoute = require("./routes/user");
 const pageRoute = require("./routes/page ");
+const adminRoute = require("./routes/admin");
 
 const app = express();
 const PORT = 8000;
@@ -45,6 +46,8 @@ app.get("/",(req, res) => {
 app.use("/page", pageRoute);
 
 app.use("/user", userRoute);
+
+app.use("/admin", adminRoute);
 
 
 
