@@ -1,4 +1,5 @@
 const { Router } = require("express");
+const upload = require("../middlewares/uploadImg");
 const { 
     handleGetListShoes,
     handlePostListShoes,
@@ -10,7 +11,7 @@ const router = Router();
 router.get("/list", handleGetListShoes);
 
 
-router.post("/list", handlePostListShoes);
+router.post("/list", upload, handlePostListShoes);
 
 
 
